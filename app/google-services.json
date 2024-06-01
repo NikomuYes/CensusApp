@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69706589385",
+    "project_id": "census-mirea",
+    "storage_bucket": "census-mirea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69706589385:android:00e8aaab0884edf6f45918",
+        "android_client_info": {
+          "package_name": "com.example.census"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfbNaUmBibCfog6jh3JQjHsX9kzGxO1DA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
