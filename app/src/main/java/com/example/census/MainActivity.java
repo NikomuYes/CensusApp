@@ -1,8 +1,10 @@
 package com.example.census;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         String login = editLog.getText().toString();
         String password = editPas.getText().toString();
         User newUser = new User(id, login, password);
-        loginDatabase.push().setValue(newUser);
+        if (!TextUtils.isEmpty(login) && !TextUtils.isEmpty(password)) {
+            loginDatabase.push().setValue(newUser);
+        }
+        else {
+            Toast.makeText(this, "Вы не заполнили какое-то поле", Toast.LENGTH_SHORT).show();
+        }
     }
 }
