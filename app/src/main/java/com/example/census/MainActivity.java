@@ -1,6 +1,8 @@
 package com.example.census;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +10,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+
 public class MainActivity extends AppCompatActivity {
+    private EditText editLog, editPas;
+    private DatabaseReference loginDatabase;
+    private String USER_KEY = "User";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +29,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        init();
+    }
+    private void init(){
+        editLog = findViewById(R.id.editLogin);
+        editPas = findViewById(R.id.editPassword);
+        loginDatabase = FirebaseDatabase.getInstance().getReference(USER_KEY);
+    }
+    public void onClickLogin(View view) {
+        String id = loginDatabase.getKey();
+        String login = editLog.getText().toString();
+        String password = editPas.getText().toString();
+        User newUser = new User(id, login, password);
+        loginDatabase.push().setValue(newUser);
     }
 }
