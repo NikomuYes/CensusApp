@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void onClickSignUp(View view) {
         if (!TextUtils.isEmpty(editLogin.getText().toString()) && !TextUtils.isEmpty(editPassword.getText().toString())) {
-            myAuth.createUserWithEmailAndPassword(editLogin.getText().toString(), editPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() { // ?
+            myAuth.createUserWithEmailAndPassword(editLogin.getText().toString(), editPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void onClickSignIn(View view) {
         if (!TextUtils.isEmpty(editLogin.getText().toString()) && !TextUtils.isEmpty(editPassword.getText().toString())) {
-            myAuth.signInWithEmailAndPassword(editLogin.getText().toString(), editPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() { // ?
+            myAuth.signInWithEmailAndPassword(editLogin.getText().toString(), editPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
