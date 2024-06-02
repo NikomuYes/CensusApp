@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "120091269499",
+    "firebase_url": "https://census-app-mirea-default-rtdb.firebaseio.com",
     "project_id": "census-app-mirea",
     "storage_bucket": "census-app-mirea.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.census"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "120091269499-9h8v05o0qsdmsk52p4a63l7u3jq0r5li.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.census",
+            "certificate_hash": "31adc7a7ea244e243712fca177d600f832f73d98"
+          }
+        },
+        {
+          "client_id": "120091269499-bastt9hrd9dk93lbdpvdaa0hmr1fmjpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC57X2Xzx9ktyxw_xOqAI20VSJcgPjd6K0"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120091269499-bastt9hrd9dk93lbdpvdaa0hmr1fmjpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
