@@ -19,8 +19,13 @@ public class MainInformation extends AppCompatActivity {
     private String selectedCountry = "";
     private String selectedGender = "";
 
+    private String selectedFamily = "";
+    private String selectedEducation = "";
+
     private DatabaseReference userDataRef;
     private EditText fullNameEditText;
+    private EditText ageEditText;
+    private EditText nationEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,10 +100,10 @@ public class MainInformation extends AppCompatActivity {
     }
 
     private void showCountrySelectionDialog() {
-        final CharSequence[] options = {"Российское", "Другое"};
+        final CharSequence[] options = {"Россия", "Другое"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Выберите ваше гражданство");
+        builder.setTitle("Выберите вашу страну");
         builder.setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -110,7 +115,7 @@ public class MainInformation extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(MainInformation.this, "Выбрано: " + selectedCountry, Toast.LENGTH_SHORT).show();
                 TextView selectedCountryTextView = findViewById(R.id.selectedCountryTextView);
-                selectedCountryTextView.setText("Ваше гражданство: " + selectedCountry);
+                selectedCountryTextView.setText(selectedCountry);
             }
         });
         builder.setNegativeButton("Отмена", null);
@@ -133,7 +138,7 @@ public class MainInformation extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(MainInformation.this, "Выбрано: " + selectedGender, Toast.LENGTH_SHORT).show();
                 TextView selectedGenderTextView = findViewById(R.id.selectedGenderTextView);
-                selectedGenderTextView.setText("Ваш пол: " + selectedGender);
+                selectedGenderTextView.setText(selectedGender);
             }
         });
         builder.setNegativeButton("Отмена", null);
