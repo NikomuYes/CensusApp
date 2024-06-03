@@ -47,10 +47,17 @@ public class MainActivity extends AppCompatActivity {
             if (phoneNumber.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Пожалуйста, укажите свой номер телефона", Toast.LENGTH_SHORT).show();
             } else {
-                checkIfPhoneNumberExists(phoneNumber);
+                if (phoneNumber.equals("1234")) {
+                    // Если введен номер админа "1234", показать диалоговое окно для ввода пароля
+                    showPasswordDialog();
+                } else {
+                    // В противном случае проверяем, существует ли номер телефона в базе данных
+                    checkIfPhoneNumberExists(phoneNumber);
+                }
             }
         }
     }
+
 
     private void checkIfPhoneNumberExists(final String phoneNumber) {
         phoneNumberRef.child(phoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
