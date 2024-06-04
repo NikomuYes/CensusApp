@@ -3,19 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/selectedGenderTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:text="..."
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.741"
-        app:layout_constraintStart_toStartOf="parent" />
+    android:layout_height="match_parent"
+    android:background="@drawable/background2">
 
     <TextView
         android:id="@+id/textView2"
@@ -23,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/acherus_bold"
         android:text="Номер телефона"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="277dp"
+        android:fontFamily="@font/acherus_bold"
         android:text="Выбрать страну"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="18dp"
+        android:fontFamily="@font/acherus_bold"
         android:text="Выбрать пол"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -51,11 +43,46 @@
         android:id="@+id/selectedCountryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/acherus_light"
         android:text="..."
         app:layout_constraintBottom_toTopOf="@+id/selectedGenderTextView"
         app:layout_constraintStart_toStartOf="@+id/selectedGenderTextView" />
+
+    <TextView
+        android:id="@+id/selectedFamilyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/acherus_light"
+        android:text="..."
+        app:layout_constraintStart_toStartOf="@+id/selectedGenderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/selectedGenderTextView" />
+
+    <TextView
+        android:id="@+id/selectedEducationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/acherus_light"
+        android:text="..."
+        app:layout_constraintStart_toStartOf="@+id/selectedFamilyTextView"
+        app:layout_constraintTop_toBottomOf="@+id/selectedFamilyTextView" />
+
+    <TextView
+        android:id="@+id/selectedGenderTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/acherus_light"
+        android:text="..."
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editTextText"
@@ -66,6 +93,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="53dp"
         android:ems="10"
+        android:fontFamily="@font/acherus_bold"
         android:hint="Введите своё ФИО:"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/editTextAge"
@@ -94,6 +122,7 @@
         android:layout_marginTop="107dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:fontFamily="@font/acherus_bold"
         android:hint="Введите свой возраст:"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +138,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="66dp"
         android:ems="10"
+        android:fontFamily="@font/acherus_bold"
         android:hint="Введите свою национальность:"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
@@ -122,18 +152,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="17dp"
+        android:fontFamily="@font/acherus_bold"
         android:text="Выбрать семейное положение"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/selectedFamilyTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="..."
-        app:layout_constraintEnd_toEndOf="@+id/selectedGenderTextView"
-        app:layout_constraintTop_toBottomOf="@+id/selectedGenderTextView" />
 
     <TextView
         android:id="@+id/textView6"
@@ -141,18 +163,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/acherus_bold"
         android:text="Выбрать образование"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/selectedEducationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="2dp"
-        android:text="..."
-        app:layout_constraintEnd_toEndOf="@+id/selectedFamilyTextView"
-        app:layout_constraintTop_toBottomOf="@+id/selectedFamilyTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

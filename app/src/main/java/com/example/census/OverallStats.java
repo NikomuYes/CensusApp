@@ -197,7 +197,7 @@ public class OverallStats extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 long userCount = dataSnapshot.getChildrenCount();
-                userCountTextView.setText("Количество граждан принявших участие в переписи: " + userCount);
+                userCountTextView.setText("Участников: " + userCount);
             }
 
             @Override
