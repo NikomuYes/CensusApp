@@ -58,13 +58,31 @@ public class MainInformation extends AppCompatActivity {
             }
         });
 
+        TextView familyTextView = findViewById(R.id.textView5);
+        familyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFamilySelectionDialog();
+            }
+        });
+
+        TextView educationTextView = findViewById(R.id.textView6);
+        educationTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showEducationSelectionDialog();
+            }
+        });
+
         fullNameEditText = findViewById(R.id.editTextText);
+        ageEditText = findViewById(R.id.editTextAge);
+        nationEditText = findViewById(R.id.editTextNation);
 
         Button submitButton = findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isFullNameValid()) {
+                if (isFullNameValid() && isAgeValid() && isNationValid()){
                     saveUserDataToDatabase();
                 }
             }
@@ -80,27 +98,59 @@ public class MainInformation extends AppCompatActivity {
         return true;
     }
 
+    private boolean isAgeValid() {
+        String age = ageEditText.getText().toString().trim();
+        if (age.isEmpty()) {
+            Toast.makeText(this, "Поле \"Возраст\" должно быть обязательно заполнено", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isNationValid() {
+        String nation = nationEditText.getText().toString().trim();
+        if (nation.isEmpty()) {
+            Toast.makeText(this, "Поле \"Национальность\" должно быть обязательно заполнено", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
     private void saveUserDataToDatabase() {
         String phoneNumber = getIntent().getStringExtra(KEY);
         String fullName = fullNameEditText.getText().toString();
+        String age = ageEditText.getText().toString();
+        String nation = nationEditText.getText().toString();
 
         userDataRef.child(phoneNumber).child("fullName").setValue(fullName);
+        userDataRef.child(phoneNumber).child("age").setValue(age);
+        userDataRef.child(phoneNumber).child("nation").setValue(nation);
 
         if (selectedCountry.isEmpty()) {
-            selectedCountry = "не указано";
+            selectedCountry = "Не указано";
         }
         userDataRef.child(phoneNumber).child("country").setValue(selectedCountry);
 
         if (selectedGender.isEmpty()) {
-            selectedGender = "не указано";
+            selectedGender = "Не указано";
         }
         userDataRef.child(phoneNumber).child("gender").setValue(selectedGender);
+
+        if (selectedFamily.isEmpty()) {
+            selectedFamily = "Не указано";
+        }
+        userDataRef.child(phoneNumber).child("family").setValue(selectedFamily);
+
+        if (selectedEducation.isEmpty()) {
+            selectedEducation = "Не указано";
+        }
+        userDataRef.child(phoneNumber).child("education").setValue(selectedEducation);
 
         Toast.makeText(this, "Информация сохранена в базе данных", Toast.LENGTH_SHORT).show();
     }
 
     private void showCountrySelectionDialog() {
-        final CharSequence[] options = {"Россия", "Другое"};
+        final CharSequence[] options = {"Россия", "Украина", "Беларусь", "Казахстан", "Другое"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Выберите вашу страну");
@@ -139,6 +189,52 @@ public class MainInformation extends AppCompatActivity {
                 Toast.makeText(MainInformation.this, "Выбрано: " + selectedGender, Toast.LENGTH_SHORT).show();
                 TextView selectedGenderTextView = findViewById(R.id.selectedGenderTextView);
                 selectedGenderTextView.setText(selectedGender);
+            }
+        });
+        builder.setNegativeButton("Отмена", null);
+        builder.show();
+    }
+
+    private void showFamilySelectionDialog() {
+        final CharSequence[] options = {"В браке", "Вне брака"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Выберите ваше семейное положение");
+        builder.setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                selectedFamily = options[which].toString();
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainInformation.this, "Выбрано: " + selectedFamily, Toast.LENGTH_SHORT).show();
+                TextView selectedGenderTextView = findViewById(R.id.selectedFamilyTextView);
+                selectedGenderTextView.setText(selectedFamily);
+            }
+        });
+        builder.setNegativeButton("Отмена", null);
+        builder.show();
+    }
+
+    private void showEducationSelectionDialog() {
+        final CharSequence[] options = {"Среднее общее", "Среднее профессиональное", "Высшее"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Выберите ваше образование");
+        builder.setSingleChoiceItems(options, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                selectedEducation = options[which].toString();
+            }
+        });
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainInformation.this, "Выбрано: " + selectedEducation, Toast.LENGTH_SHORT).show();
+                TextView selectedGenderTextView = findViewById(R.id.selectedEducationTextView);
+                selectedGenderTextView.setText(selectedEducation);
             }
         });
         builder.setNegativeButton("Отмена", null);

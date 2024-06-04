@@ -79,10 +79,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
         android:layout_marginEnd="110dp"
-        android:layout_marginBottom="25dp"
-        android:text="Передать данные"
+        android:layout_marginBottom="48dp"
+        android:text="Отправить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextNation"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -135,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/selectedGenderTextView" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"

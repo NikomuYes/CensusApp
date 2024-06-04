@@ -47,11 +47,9 @@ public class MainActivity extends AppCompatActivity {
             if (phoneNumber.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Пожалуйста, укажите свой номер телефона", Toast.LENGTH_SHORT).show();
             } else {
-                if (phoneNumber.equals("1234")) {
-                    // Если введен номер админа "1234", показать диалоговое окно для ввода пароля
+                if (phoneNumber.equals("987654321")) {
                     showPasswordDialog();
                 } else {
-                    // В противном случае проверяем, существует ли номер телефона в базе данных
                     checkIfPhoneNumberExists(phoneNumber);
                 }
             }
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showPasswordDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Введите пароль от аккаунта admin");
+        builder.setTitle("Введите пароль");
 
         // Добавляем поле для ввода пароля в диалоговое окно
         final EditText input = new EditText(this);
@@ -102,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 String password = input.getText().toString();
 
                 // Проверяем пароль
-                if (password.equals("1234")) {
+                if (password.equals("g-301-v")) {
                     String phoneNumber = phoneEditText.getText().toString().trim();  // Получаем номер телефона из EditText
                     Intent intent = new Intent(MainActivity.this, OverallStats.class);
                     intent.putExtra(KEY, phoneNumber);
